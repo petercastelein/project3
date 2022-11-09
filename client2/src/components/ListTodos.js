@@ -1,3 +1,10 @@
+/*
+CSCE 315
+Project 3
+Team 14
+11/08/22
+ */
+
 import React, { Fragment, useEffect, useState } from "react";
 import {url} from "./constvars.js";
 
@@ -40,11 +47,11 @@ const ListTodos = () => {
   return (
     <Fragment>
       {" "}
-      <table className="table mt-5 text-center">
+      <table cellspacing="0" cellpadding="0" className="table mt-5 text-center width-20 top-50 end-50 margin-0 border-collapse">
         <thead>
           <tr>
             <th>Description</th>
-            <th>Edit</th>
+            {/* <th>Edit</th> */}
             <th>Delete</th>
           </tr>
         </thead>

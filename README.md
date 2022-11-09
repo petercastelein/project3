@@ -19,7 +19,7 @@
    git push
 ```
 **3. Pull request if you think the work is ready for the main branch**
-   1. Use the website: https://github.tamu.edu/petercastelein/project2
+   1. Use the website: https://github.tamu.edu/petercastelein/project3
    2. Click on Pull requests
    3. Click on New pull request
    4. Click Compare & pull request

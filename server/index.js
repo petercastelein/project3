@@ -1,5 +1,16 @@
+/*
+CSCE 315
+Project 3
+Team 14
+11/08/22
+ */
+
+// index.js
+// node - express API for database access
+
 const express = require("express");
 const app = express();
+const port = 5800;
 const cors = require("cors");
 const pool = require("./db.js");
 
@@ -88,6 +99,19 @@ app.delete("/todos/:id", async (req, res) => {
    }
 });
 
-app.listen(5800, ()=> {
-   console.log("server has started on port 5800");
+app.get('/user', (req, res) => {
+   teammembers = []
+   pool
+       .query('SELECT * FROM teammembers;')
+       .then(query_res => {
+           for (let i = 0; i < query_res.rowCount; i++){
+               teammembers.push(query_res.rows[i]);
+           }
+           const data = {teammembers: teammembers};
+           console.log(teammembers);
+       });
+});
+
+app.listen(port, () => {
+   console.log(`Server is listening at http://localhost:${port}`);
 });

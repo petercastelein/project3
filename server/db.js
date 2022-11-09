@@ -1,3 +1,13 @@
+/*
+CSCE 315
+Project 3
+Team 14
+11/08/22
+ */
+
+// db.js
+// database setup requirements
+
 const Pool = require("pg").Pool;
 const dotenv = require('dotenv').config();
 
