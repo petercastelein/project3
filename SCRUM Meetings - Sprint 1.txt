@@ -1,0 +1,64 @@
+﻿Time: 6:30pm, October 31st, 2022
+Location: ZACH 252
+In-Attendance: ALL
+
+
+What have we done since our last meeting:
+* Researched full-stack development.
+* Watched two React tutorials.
+
+
+Blockers:
+* What platform is going to host our code?
+   * Should be discussed in the lab, if not we’ll ask about it.
+* Learning the tools that we’ll be using in the lab.
+
+
+What we’re working on until we meet again:
+* Minimal database connectivity.
+* Setting up Github Repository.
+* Everyone will have a local repository.
+
+
+NOTES FROM LAB:
+* Express.JS
+* React isn’t a template framework, and won’t be as intuitive if we use Express.JS
+* Do not use ORM frameworks, as it’s too high level for this project.
+
+
+Time: 11am, November 4th, 2022
+Location: Quadbucks, 2nd Floor
+In-Attendance: ALL
+
+
+What have we done since our last meeting:
+* Set-up the Github.
+* We chosen the full-stack; PostgreSQL, Express, React, Node.js
+* Workspace set-up
+* Found a host, Render
+Blockers:
+* React has a steep learning curve.
+What we’re working on until we meet again:
+* Kyle - Designing a new GUI
+* Ivan - Finish technical documentation
+
+
+Time: 6:30pm, November 7th, 2022
+Location: ZACH 252
+In-Attendance: ALL
+
+
+What have we done since our last meeting:
+* Reviewed React
+* Found scalable images for 95% of our menu
+* Node has been connected to the database
+Blockers:
+* Difficulty installing NPM on a Windows machine, need to resolve before Ethan can keep developing.
+* We need to have a MVP front-end prior to us being able to efficiently work on our back-end.
+
+
+What we’re working on until we meet again:
+* Ivan - finish documentation
+* Kyle - get front-end up and working
+* Peter - pull inventory from database and output JSON files
+* Ethan - finish gathering menu item images and upload them
