@@ -4,31 +4,51 @@ Project 3
 Team 14
 11/08/22
  */
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
-import React, {Fragment} from 'react';
 import './App.css';
 
 
 
 //components
 import Customer from "./pages/customer/customer.js";
-import addOrder from "./components/addOrder";
-// import InputTodo from "./components/InputTodo";
-// import ListTodos from "./components/ListTodos";
+import Manager from "./pages/manager/manager.js";
+import Cashier from "./pages/cashier/cashier.js";
+import NavBar from "./pages/navbar/navbar.js";
+
 
 function App() {
+  
   return (
-  <Fragment>
-    <div className="container">
-      {/* <InputTodo /> */}
-      {/* <div className="top-50 end-50">
-        <ListTodos />
-      </div> */}
-      
-      <Customer />
-    </div>
-  </Fragment>
+    
+
+    
+    <Router>
+      {/* Navigation bar */}
+      <NavBar/>
+        <Routes>
+            <Route path="/" element={<Customer />} />
+            <Route path="manager" element={<Manager />} />              
+            <Route path="cashier" element={<Cashier />} />              
+        </Routes>
+        
+    </Router>
   );
 }
+/*
+  <Fragment>
+    <div className="container">
 
+        <ListTodos />
+      
+        <Customer />
+    </div>
+  </Fragment>
+*/
 export default App;

@@ -43,12 +43,47 @@ app.post("/todos", async(req, res) => {
    }
 })
 
+app.post("/order", async(req, res) => {
+   try {
+      console.log(req.body);
+      const { order } = req.body;
+      const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *",
+      [order]
+      );
+
+      res.json(newTodo);
+   } catch (err) {
+      console.log(err.message);
+   }
+})
+
 //get all todos
 
 app.get("/todos", async(req, res) => {
    try {
       const allTodos = await pool.query("SELECT * FROM todo");
 
+      res.json(allTodos.rows);
+   } catch (err) {
+      console.log(err.message);
+   }
+})
+
+app.get("/menu", async(req, res) => {
+   try {
+      const allTodos = await pool.query("SELECT * FROM customer_order WHERE employee_id = 9");
+      //const allTodos = await pool.query("SELECT * FROM inventory WHERE is_menu_item = 't'");
+      console.log(allTodos.rows);
+      res.json(allTodos.rows);
+   } catch (err) {
+      console.log(err.message);
+   }
+})
+
+app.get("/getInventory", async(req, res) => {
+   try {
+      const allTodos = await pool.query("SELECT * FROM inventory");
+      console.log(allTodos.rows);
       res.json(allTodos.rows);
    } catch (err) {
       console.log(err.message);

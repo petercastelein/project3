@@ -1,7 +1,7 @@
 
 import React, {Fragment, useEffect, useState} from 'react';
 
-import "./customer.css"
+import "../customer/customer.css"
 import {url} from "../../components/constvars.js";
 
 // IMPORT IMAGES
@@ -30,8 +30,7 @@ import VegetableEggRoll from '../../menu_item_img/veg_egg_roll.png';
 import WhiteRice from '../../menu_item_img/white_rice.png';
 
 
-export default function Customer(){
-    const [menuItems, setMenuItems] = useState([]);
+export default function Cashier(){
     const [items, setItems] = useState([]);
     const [price, setPrice] = useState([]);
     //const [description, setDescription] = useState("");
@@ -104,19 +103,19 @@ export default function Customer(){
     };
 
     {/* Displays menu items currently in order */}
-    const getMenuItems = async () => {
+    const getItems = async () => {
         try {
-            const response = await fetch(url + "menu");
+            const response = await fetch(url + "items");
             const jsonData = await response.json();
-            console.log(jsonData);
-            setMenuItems(jsonData);
+      
+            setItems(jsonData);
           } catch (err) {
             console.error(err.message);
           }
     };
 
     useEffect(() => {
-        getMenuItems();
+        getItems();
     }, []);
 
     console.log(items);
@@ -139,7 +138,7 @@ export default function Customer(){
             {/* Restaurant name and logo */}
             <div className="center">
                 <img src={logo} alt="logo" />
-                <h1> Panda Express </h1>
+                <h1> Cashier View </h1>
             </div>
             
             {/* Menu Items */}
@@ -336,7 +335,7 @@ export default function Customer(){
 
             {/* Customer Order */}
             <div className="order text-center">
-                    <h1>Your Order</h1>
+                    <h1>Current Order</h1>
                     <table className="table mt-5 text-center">
                         <thead>
                             <tr>

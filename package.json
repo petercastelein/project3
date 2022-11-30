@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "dotenv": "^16.0.3",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "react-router": "^6.4.3",
+    "react-router-dom": "^6.4.3",
+    "react-routes": "^0.2.6"
   }
 }

@@ -1,0 +1,9 @@
+.text-large{
+    font-size:200%;
+    font-weight:bold;
+    margin-right:50px;
+}
+
+text-large:hover{
+    background-color: #f0fff0;
+}

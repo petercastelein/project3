@@ -30,24 +30,40 @@ Notes:
 
 ==========================================================================
 
-Date: Wednesday November 16th, 2022
-Time: 6:30 PM 
-Location: ZACH 257
+Date: Friday November 18th, 2022
+Time: 10:45 AM 
+Location: ZACH 310
 
 What have we accomplished since our last meeting?
+- Kyle: total price was added to the GUI, invdividual menu item prices
+- Peter: researched hosting platforms, set up our website on Render
 
 Blockers:
+- Lack of time, it's been a busy week.
+- Trying to figure out how to fix total order price upon removing an item from the order.
 
 Taskers going forward:
+- Peter & Ivan: working on back-end over the weekend, specifically fixing the total order issue and submitting orders to the database
+- Kyle: finishing the manager and cashier interfaces
+- Ethan: working on packaging the orders into JSON files to submit to the back-end
+
+Notes:
+- We discussed our plans for the weekend and when we'll find time to work.
+- Made plans for over Thanksgiving to ensure that we'll be able to work.
 
 ==========================================================================
 
-Date: Monday November 21st, 2022
+Date: Tuesday November 22nd, 2022
 Time: 6:30 PM 
-Location: ZACH 252
+Location: Discord
 
 What have we accomplished since our last meeting?
+- Kyle created the nav bar and made a basic manager GUI.
+- Ethan added a plus/minus button locally, still need to push to 
+- Peter made data showing up in the client-side, still needs to be utilized by server-side.
 
 Blockers:
+- Integrating everything at this point. 
 
 Taskers going forward:
+- Working as able over break, as we have the big user demo the following Wednesday after Thanksgiving break.

@@ -1,0 +1,82 @@
+Date: Monday November 28th, 2022
+Time: 10:30 AM
+Location: ZACH 310
+
+What have we accomplished since our last meeting?
+- We have accomplished nothing over the break. We partied too hard.
+
+Blockers:
+- Currently behind on production schedule due to lack of work over Thanksgiving.
+- Figuring out OAuth Login stuff
+
+Taskers going forward:
+- Ivan: Google Translate API
+- Kyle & Peter: connecting front-end token production to back-end token consumption
+- Ethan: work on OAuth
+
+Notes:
+- Everyone had a relaxing Thanksgiving.
+
+==========================================================================
+Date: Monday November 14th, 2022
+Time: 6:30 PM 
+Location: ZACH 250
+
+What have we accomplished since our last meeting?
+- Kyle: configured add order button
+- Ethan: put in all the plus buttons for every single menu item, sorted out menu images for every item
+- Peter: Worked on processing in the back-end, redoing ordering code from previous project
+
+Blockers:
+- Kyle: figuring out how to incorporate price into sales button
+- Connecting the front-end with the database, currently does as much as it can without interacting
+- Relative inexperience with Node, always having to learn things from scratch.
+
+Taskers going forward:
+- Ivan: catch up with all the technical stuff, look into Google Translate integration, upload documents to Discord
+- Kyle: focusing on 313, will work where he can
+- Peter: Work on more back-end connectivity with the database, picking up Order object and sending it to the database.
+- Ethan: add back-end connectivity to order submission
+
+Notes:
+- We're going to make a word doc instead of a PPT for the team meeting.
+- We're gonna meet tomorrow night on Discord to do a run-through of our presentation.
+- We've updated our Monday to account for the removal of automated tasks switching.
+- Created product backlog for this sprint:
+
+- Have basic manager GUI.
+- Full functionality to submit orders from the User and Cashier interface with the back-end.
+- Integrate Google Translate fully into our GUI.
+
+==========================================================================
+Date: Monday November 14th, 2022
+Time: 6:30 PM 
+Location: ZACH 250
+
+What have we accomplished since our last meeting?
+- Kyle: configured add order button
+- Ethan: put in all the plus buttons for every single menu item, sorted out menu images for every item
+- Peter: Worked on processing in the back-end, redoing ordering code from previous project
+
+Blockers:
+- Kyle: figuring out how to incorporate price into sales button
+- Connecting the front-end with the database, currently does as much as it can without interacting
+- Relative inexperience with Node, always having to learn things from scratch.
+
+Taskers going forward:
+- Ivan: catch up with all the technical stuff, look into Google Translate integration, upload documents to Discord
+- Kyle: focusing on 313, will work where he can
+- Peter: Work on more back-end connectivity with the database, picking up Order object and sending it to the database.
+- Ethan: add back-end connectivity to order submission
+
+Notes:
+- We're going to make a word doc instead of a PPT for the team meeting.
+- We're gonna meet tomorrow night on Discord to do a run-through of our presentation.
+- We've updated our Monday to account for the removal of automated tasks switching.
+- Created product backlog for this sprint:
+
+- Have basic manager GUI.
+- Full functionality to submit orders from the User and Cashier interface with the back-end.
+- Integrate Google Translate fully into our GUI.
+
+==========================================================================
