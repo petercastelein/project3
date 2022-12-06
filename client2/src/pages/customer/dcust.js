@@ -1,21 +1,19 @@
 
-import React, {Fragment, useEffect, useState, useRef, useDebugValue} from 'react';
-
-import "../customer/customer.css"
+import React, {Fragment, useEffect, useState} from 'react';
+import "./customer.css"
 import {url} from "../../components/constvars.js";
 
 // IMPORT IMAGES
 import logo from '../../images/Panda-Express-Logo.jpeg';
 
-export default function Cashier(){
-    const [label, setLabel] = useState("Current Order"); 
+export default function Customer(){
+    const [label, setLabel] = useState("Your Order"); 
     const [ticket, setTicket] = useState([]);
     const [ticketTotal, setTotal] = useState(0.0);
     const [menuItems, setMenuItems] = useState([]);
 
     {/* Displays menu items currently in order */}
     const getMenuItems = async () => {
-        document.getElementById("google_translate").hidden = true;
         try {
             const response = await fetch(url + "menu");
             const jsonData = await response.json();
@@ -25,16 +23,16 @@ export default function Cashier(){
             console.error(err.message);
         }
     };
-    
+
     useEffect(() => {
         getMenuItems();
     }, []);
-    
+
     //console.log(menuItems);
 
     //call back to update the table
     function addToTicket(itemId, itemName, itemPrice) {
-        setLabel("Current Order");
+      setLabel("Your Order");
       let updatedTicket = ticket.map((x) => x);
       let found = false;
       if(updatedTicket.length != 0) {
@@ -99,7 +97,7 @@ export default function Cashier(){
      };
 
 
-        {/* Submits Order Ticket to backend - NEED TO REPLACE: body with real order ticket*/}
+     {/* Submits Order Ticket to backend - NEED TO REPLACE: body with real order ticket*/}
         const submitOrder = async e => {
             //e.preventDefault(); /* dunno what this does, something about stopping refresh */
             const event = new Date();
@@ -129,47 +127,32 @@ export default function Cashier(){
             }
         };
 
-
     return(
         <Fragment>
             {/* Restaurant name and logo */}
             <div className="center">
                 <img src={logo} alt="logo" />
-                <h1> Cashier View </h1>
+                <h1> Panda Express </h1>
             </div>
             
-            {/* Menu */}
-            <div div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "15%",}}>
-                <h1 className="employeeElements">Menu</h1>  
-                <div className="tableContainer">
-                    <table className="table employeeElements" id="test1">
-                        <thead>
-                            <tr>
-                                {/* <th>Image</th> */}
-                                <th>ID</th>
-                                <th>Item</th>
-                                <th>Price</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {menuItems.sort((a, b) => a.inventory_id - b.inventory_id)
-                                       .map((item) => {
-                                //const recentDate = orders[newDate];
-                                return(
-                                    <tr>
-                                        <td>{item.inventory_id}</td>
-                                        <td>{item.inventory_name}</td>
-                                        <td>{item.price_per_quantity.substring(0,10)}</td>
-                                        <th><button className="btn btn-dark btn-lg" type="submit" onClick={(e) => {
-                                        addToTicket(item.inventory_id, item.inventory_name, item.price_per_quantity);
-                                        }}>Add to Order</button></th>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+            {/* Menu Items */}
+           
+            <div className="menu text-center">
+                {menuItems
+                .filter(
+                    (item) => item.inventory_id < 23
+                
+                ).sort((a, b) => a.inventory_id - b.inventory_id)
+                .map((item) => (
+                    <div className="menuItems">
+                        <div className="menuItems w-100 h-75 row mx-auto"><img src={require('../../menu_item_img/' + (item.inventory_name).replace(/ /g, '_') + '.png')} alt="img" /></div>
+                        <div className="text-center h3">{item.inventory_name}</div>
+                        <div className="text-center h4">{item.price_per_quantity.substring(0,10)}</div>
+                        <div><button className="btn btn-dark btn-lg" type="submit" onClick={(e) => {
+                        addToTicket(item.inventory_id, item.inventory_name, item.price_per_quantity);
+                        }}>Add to Order</button></div>
+                    </div>
+                ))}
             </div>
 
             {/* Customer Order */}
@@ -185,7 +168,6 @@ export default function Cashier(){
 
                                 <th>Remove</th>
                                 <th></th>
-                                
                             </tr>
                         </thead>
                         <tbody>
@@ -196,11 +178,10 @@ export default function Cashier(){
                                         <td><h1>{item.name}</h1></td>
 
                                         {/* Displays menu item price */}
-
                                         <td><h2>{"$" + item.price}</h2></td>
 
                                         <td><h2>{"x" + item.quantity}</h2></td>
-                                       
+
                                         <td><button className='btn btn-dark btn-large' onClick={(e) => {incrementTicket(item, 1)}}>+</button></td>
 
                                         <td><button className='btn btn-dark btn-large' onClick={(e) => {incrementTicket(item, -1)}}>-</button></td>
@@ -210,7 +191,8 @@ export default function Cashier(){
                                             removeFromTicket(item);
                                             //reset();
                                         }}
-                                        >Remove</button></td>
+                                        >
+                                        Remove</button></td>
                                     </tr>
                                 );
                             })}

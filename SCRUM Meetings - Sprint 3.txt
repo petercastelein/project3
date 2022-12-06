@@ -18,40 +18,37 @@ Notes:
 - Everyone had a relaxing Thanksgiving.
 
 ==========================================================================
-Date: Monday November 14th, 2022
-Time: 6:30 PM 
-Location: ZACH 250
+Date: Friday December 2nd, 2022
+Time: 4:00 PM 
+Location: Buzbee 315
 
 What have we accomplished since our last meeting?
-- Kyle: configured add order button
-- Ethan: put in all the plus buttons for every single menu item, sorted out menu images for every item
-- Peter: Worked on processing in the back-end, redoing ordering code from previous project
+- Functionality for submitting an order into the database from the front-end.
+- The submitted order decrements the database inventory.
+- Back-end functionality for restock function for manager.
+- Created landing page.
+- Added Google Maps and Google Translate to landing page.
+- Removed images to create cashier page.
+- Shows all data in manager page.
 
 Blockers:
-- Kyle: figuring out how to incorporate price into sales button
-- Connecting the front-end with the database, currently does as much as it can without interacting
-- Relative inexperience with Node, always having to learn things from scratch.
+- Counters for incrementing/decrementing order items.
+- Login functionality.
 
 Taskers going forward:
-- Ivan: catch up with all the technical stuff, look into Google Translate integration, upload documents to Discord
-- Kyle: focusing on 313, will work where he can
-- Peter: Work on more back-end connectivity with the database, picking up Order object and sending it to the database.
-- Ethan: add back-end connectivity to order submission
+- Ethan: finish incrementer/decrementer functionality.
+- Ivan: landing page and fix Google translate on non-landing pages.
+- Kyle: get customer page set-up with the backend
+- Peter: write insert_new_item into the backend and look into integrating it into the front-end.
 
 Notes:
-- We're going to make a word doc instead of a PPT for the team meeting.
-- We're gonna meet tomorrow night on Discord to do a run-through of our presentation.
-- We've updated our Monday to account for the removal of automated tasks switching.
-- Created product backlog for this sprint:
-
-- Have basic manager GUI.
-- Full functionality to submit orders from the User and Cashier interface with the back-end.
-- Integrate Google Translate fully into our GUI.
+- Meet in-person on Sunday to continue work.
+- Got a lot of work done today, WHOOP.
 
 ==========================================================================
-Date: Monday November 14th, 2022
+Date: Tuesday December 6th, 2022
 Time: 6:30 PM 
-Location: ZACH 250
+Location: Discord
 
 What have we accomplished since our last meeting?
 - Kyle: configured add order button

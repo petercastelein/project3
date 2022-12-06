@@ -6,16 +6,37 @@ import {url} from "../../components/constvars.js";
 
 // IMPORT IMAGES
 import logo from '../../images/Panda-Express-Logo.jpeg';
+// import BeijingBeef from '../../menu_item_img/bejing_beef.png';
+// import BeyondOrangeChicken from '../../menu_item_img/beyond_orange_chicken.png';
+// import BlackPepperAngus from '../../menu_item_img/black_pepper_angus.png';
+// import BlackPepperChicken from '../../menu_item_img/black_pepper_chicken.png';
+// import BroccoliBeef from '../../menu_item_img/broccoli_beef.png';
+// import BrownRice from '../../menu_item_img/brown_rice.png';
+// import ChickenEggRoll from '../../menu_item_img/chicken_egg_roll.png';
+// import ChowMein from '../../menu_item_img/chow_mein.png';
+// import CreamCheeseRangoon from '../../menu_item_img/cream_cheese_rangoon.png';
+// import FortuneCookie from '../../menu_item_img/fortune_cookie.png';
+// import FountainDrink from '../../menu_item_img/fountain_drink.png';
+// import FriedRice from '../../menu_item_img/fried_rice.png';
+// import HoneySesameChicken from '../../menu_item_img/honey_sesame_chicken.png';
+// import HoneyWalnutShrimp from '../../menu_item_img/honey_walnut_shrimp.png';
+// import KungPaoChicken from '../../menu_item_img/kung_pao_chicken.png';
+// import MushroomChicken from '../../menu_item_img/mushroom_chicken.png';
+// import OrangeChicken from '../../menu_item_img/orange_chicken.png';
+// import StringbeanChicken from '../../menu_item_img/stringbean_chicken.png';
+// import Supergreens from '../../menu_item_img/supergreens.png';
+// import SweetfireChicken from '../../menu_item_img/sweetfire_chicken.png';
+// import VegetableEggRoll from '../../menu_item_img/veg_egg_roll.png';
+// import WhiteRice from '../../menu_item_img/white_rice.png';
 
-export default function Cashier(){
-    const [label, setLabel] = useState("Current Order"); 
+
+export default function Dcash(){
     const [ticket, setTicket] = useState([]);
     const [ticketTotal, setTotal] = useState(0.0);
     const [menuItems, setMenuItems] = useState([]);
 
     {/* Displays menu items currently in order */}
     const getMenuItems = async () => {
-        document.getElementById("google_translate").hidden = true;
         try {
             const response = await fetch(url + "menu");
             const jsonData = await response.json();
@@ -34,7 +55,6 @@ export default function Cashier(){
 
     //call back to update the table
     function addToTicket(itemId, itemName, itemPrice) {
-        setLabel("Current Order");
       let updatedTicket = ticket.map((x) => x);
       let found = false;
       if(updatedTicket.length != 0) {
@@ -123,7 +143,6 @@ export default function Cashier(){
                 //window.location = "/"; // refresh page i think?
                 setTicket([]);
                 setTotal(0);
-                setLabel("Order Placed!");
             } catch (err) {
                 console.error(err.message);
             }
@@ -174,7 +193,7 @@ export default function Cashier(){
 
             {/* Customer Order */}
             <div className="order text-center">
-                    <h1>{label}</h1>
+                    <h1>Current Order</h1>
                     <table className="table mt-5 text-center">
                         <thead>
                             <tr>
@@ -182,7 +201,6 @@ export default function Cashier(){
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th></th>
-
                                 <th>Remove</th>
                                 <th></th>
                                 
@@ -196,7 +214,6 @@ export default function Cashier(){
                                         <td><h1>{item.name}</h1></td>
 
                                         {/* Displays menu item price */}
-
                                         <td><h2>{"$" + item.price}</h2></td>
 
                                         <td><h2>{"x" + item.quantity}</h2></td>

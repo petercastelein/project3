@@ -5,4 +5,4 @@ Team 14
 11/08/22
  */
 
-export const url = "https://server-pos.onrender.com";
+export const url = "http://localhost:5800/";

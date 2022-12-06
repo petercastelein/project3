@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
 
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand text-large" href="/">
+        <a className="navbar-brand text-large" href="customer">
           Customer
         </a>
         <button
@@ -24,13 +24,18 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link text-large" href="http://localhost:3000/manager">
+              <a className="nav-link text-large" href="/manager">
                 Manager
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white text-large" href="http://localhost:3000/cashier">
+              <a className="nav-link text-white text-large" href="/cashier">
                 Cashier 
+              </a>
+            </li>
+            <li className="nav-item active">
+              <a className="nav-link text-large" href="/">
+                Landing
               </a>
             </li>
             {/* <li className="nav-item dropdown">

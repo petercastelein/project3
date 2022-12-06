@@ -11,14 +11,6 @@ export default function Manager(){
     const [menuItems, setMenuItems] = useState([]);
     const [employees, setEmployees] = useState([]);
     const [orders, setOrders] = useState([]);
-    const [itemForm, setItemForm] = useState({
-        inventory_name: "",
-        inventory_quantity: "",
-        price_per_quantity: "",
-        is_menu_item: "True"
-      })
-    
-
 
     {/* Displays menu items currently in order */}
     const getMenuItems = async () => {
@@ -37,7 +29,8 @@ export default function Manager(){
     }, []);
     
     //console.log(menuItems);
-    document.getElementById("google_translate").hidden = true;
+
+
     const getCurrEmployees = async () => {
         try {
             const response = await fetch(url + "getEmployees");
@@ -78,11 +71,12 @@ export default function Manager(){
   {/* Submit new Item to Database - NEED TO REPLACE: body with real order ticket */}
   const addInventoryItem = async e => {
     //e.preventDefault(); /* dunno what this does, something about stopping refresh */
+    const event = new Date();
+    const date = event.toISOString();
     try {
         //format: {"inventory_name": "kung pow strips", "inventory_quantity": 100, "price_per_quantity": "5.99", "is_menu_item": "True"}
-        //console.log(itemForm);
-        const body = {"inventory_name": itemForm.inventory_name, "inventory_quantity": itemForm.inventory_quantity, "price_per_quantity": itemForm.price_per_quantity, "is_menu_item": itemForm.is_menu_item}
-        const newOrder = await fetch(url + "newInventory", {
+        const body = {"inventory_name": orders.inventory_name, "inventory_quantity": orders.inventory_quantity, "price_per_quantity": orders.price_per_quantity, "is_menu_item": orders.is_menu_item}
+        const newOrder = await fetch(url + "new", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body)
@@ -94,16 +88,8 @@ export default function Manager(){
     }
 };
 
- // capture user input in edit form inputs
-function handleFormChange(e) {
-    //console.log("here");
-    setItemForm({
-    ...itemForm,
-    [e.target.name]: e.target.value
-    })
-    //console.log(itemForm);
-   }   
-/*     const updateInventoryItem = async (e, menuItem) => {
+    
+    const updateInventoryItem = async (e, menuItem) => {
         e.preventDefault();
         try {
             //format: {"inventory_id": 35, "inventory_name": "apple chicken", "inventory_quantity": 99, "price_per_quantity": "10.75"};
@@ -121,7 +107,7 @@ function handleFormChange(e) {
         } catch (err) {
           console.error(err.message);
         }
-    }; */
+    };
 
     //console.log(menuItems);
 
@@ -242,26 +228,26 @@ function handleFormChange(e) {
 
             {/* Submit restock order */}
             <div div className="col-md-3 col-sm-3 col-xs-3 text-center" style = {{position: "absolute", marginBottom: "-10%", bottom: "0px", left: "0px", marginLeft: "35%",}}>
-                <h1 className="employeeElements">Add New Item</h1>
+                <h1 className="employeeElements">Submit Restock Order</h1>
                 <form onSubmit={addInventoryItem}>
                     <div class="field">
                         <label for="name">Name:</label>
-                        <input type="text" name="inventory_name" value={itemForm.inventory_name} placeholder="Beyond Orange Chicken" onChange={handleFormChange}/>
+                        <input type="text" id="name" value={orders.inventory_name} placeholder="Beyond Orange Chicken" />
                     </div>
 
                     <div class="field">
                         <label for="quantity">Quantity:</label>
-                        <input type="text" name="inventory_quantity" value={itemForm.inventory_quantity} placeholder="500" onChange={handleFormChange}/>
+                        <input type="text" id="quantity" value={orders.inventory_quantity} placeholder="25" />
                     </div>
 
                     <div class="field">
                         <label for="pricePerQuantity">Price per Quantity:</label>
-                        <input type="text" name="price_per_quantity" value={itemForm.price_per_quantity} placeholder="9.99" onChange={handleFormChange}/>
+                        <input type="text" id="pricePerQuantity" value={orders.price_per_quantity} placeholder="5.50" />
                     </div>
 
                     <div class="field">
                         <label for="isItem">Is Menu Item:</label>
-                        <input type="text" name="is_menu_item" value={itemForm.is_menu_item} placeholder="True" onChange={handleFormChange}/>
+                        <input type="text" id="isItem" value={orders.is_menu_item} placeholder="true" />
                     </div>
                     
                     <button className="btn btn-success btn-lg" type="submit">Submit Order</button>
