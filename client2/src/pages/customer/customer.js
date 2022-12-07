@@ -6,7 +6,7 @@ import {url} from "../../components/constvars.js";
 // IMPORT IMAGES
 import logo from '../../images/Panda-Express-Logo.jpeg';
 
-/* import Beijing_Beef from '../../menu_item_img/Bejing_Beef.png';
+import Bejing_Beef from '../../menu_item_img/Bejing_Beef.png';
 import Beyond_Orange_Chicken from '../../menu_item_img/Beyond_Orange_Chicken.png';
 import Black_Pepper_Angus from '../../menu_item_img/Black_Pepper_Angus.png';
 import Black_Pepper_Chicken from '../../menu_item_img/Black_Pepper_Chicken.png';
@@ -27,7 +27,8 @@ import String_Bean_Chicken_Breast from '../../menu_item_img/String_Bean_Chicken_
 import Super_Green from '../../menu_item_img/Super_Green.png';
 import Sweet_Chicken_Breast from '../../menu_item_img/Sweet_Chicken_Breast.png';
 import Veggie_Egg_Roll from '../../menu_item_img/Veggie_Egg_Roll.png';
-import White_Rice from '../../menu_item_img/White_Rice.png'; */
+import White_Rice from '../../menu_item_img/White_Rice.png';
+import Teriyaki_Chicken from '../../menu_item_img/Teriyaki_Chicken.png';
 
 export default function Customer(){
     const [label, setLabel] = useState("Your Order"); 
@@ -53,10 +54,35 @@ export default function Customer(){
         getMenuItems();
     }, []);
 
-/*     const varToString = varObj => Object.keys(varObj)[0]
+    const varToString = varObj => Object.keys(varObj)[0]
 
-    const displayName = varToString({ Beijing_Beef })
-    console.log(displayName) */
+    var nameMap = [];
+    var displayName = varToString({ Bejing_Beef });
+    nameMap[displayName] = Bejing_Beef;
+    nameMap[varToString({ Beyond_Orange_Chicken })] = Beyond_Orange_Chicken;
+    nameMap[varToString({ Black_Pepper_Angus })] = Black_Pepper_Angus;
+    nameMap[varToString({ Black_Pepper_Chicken })] = Black_Pepper_Chicken;
+    nameMap[varToString({ Broccoli_Beef })] = Broccoli_Beef;
+    nameMap[varToString({ Brown_Rice })] = Brown_Rice;
+    nameMap[varToString({ Chicken_Egg_Roll })] = Chicken_Egg_Roll;
+    nameMap[varToString({ Chow_Mein })] = Chow_Mein;
+    nameMap[varToString({ Cream_Cheese_Rangoon })] = Cream_Cheese_Rangoon;
+    nameMap[varToString({ Fortune_Cookie })] = Fortune_Cookie;
+    nameMap[varToString({ Fried_Rice })] = Fried_Rice;
+    nameMap[varToString({ Fountain_Drink })] = Fountain_Drink;
+    nameMap[varToString({ Honey_Sesame_Chicken })] = Honey_Sesame_Chicken;
+    nameMap[varToString({ Honey_Walnut_Shrimp })] = Honey_Walnut_Shrimp;
+    nameMap[varToString({ Kung_Pao_Chicken })] = Kung_Pao_Chicken;
+    nameMap[varToString({ Mushroom_Chicken })] = Mushroom_Chicken;
+    nameMap[varToString({ Original_Orange_Chicken })] = Original_Orange_Chicken;
+    nameMap[varToString({ String_Bean_Chicken_Breast })] = String_Bean_Chicken_Breast;
+    nameMap[varToString({ Super_Green })] = Super_Green;
+    nameMap[varToString({ Sweet_Chicken_Breast })] = Sweet_Chicken_Breast;
+    nameMap[varToString({ Veggie_Egg_Roll })] = Veggie_Egg_Roll;
+    nameMap[varToString({ White_Rice })] = White_Rice;
+    nameMap[varToString({ Teriyaki_Chicken })] = Teriyaki_Chicken;
+    
+    console.log(nameMap);
     
     //console.log(menuItems);
 
@@ -176,7 +202,7 @@ export default function Customer(){
                 ).sort((a, b) => a.inventory_id - b.inventory_id)
                 .map((item) => (
                     <div className="menuItems">
-                        <div className="menuItems w-100 h-75 row mx-auto"><img src={require('../../menu_item_img/'+`${item.inventory_name.replace(/ /g, '_')}`+'.png')} alt="img"/> </div>
+                        <div className="menuItems w-100 h-75 row mx-auto"><img src={nameMap[item.inventory_name.replace(/ /g,'_')]} alt="img"/> </div>
                         <div className="text-center h3">{item.inventory_name}</div>
                         <div className="text-center h4">{item.price_per_quantity.substring(0,10)}</div>
                         <div><button className="btn btn-dark btn-lg" type="submit" onClick={(e) => {
