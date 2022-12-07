@@ -19,8 +19,10 @@ export default function Manager(){
       })
     
 
-
-    {/* Displays menu items currently in order */}
+    /** Displays menu items currently in order
+     * 
+     * 
+     */
     const getMenuItems = async () => {
         try {
             const response = await fetch(url + "getInventory");
@@ -36,7 +38,10 @@ export default function Manager(){
         getMenuItems();
     }, []);
     
-    //console.log(menuItems);
+    /** Uses a state to fetch the employees currently in the database
+     * 
+     * 
+     */
     document.getElementById("google_translate").hidden = true;
     const getCurrEmployees = async () => {
         try {
@@ -55,7 +60,10 @@ export default function Manager(){
     
     //console.log(menuItems);
 
-
+    /** Displays the previous orders that have been recorded in the database
+     * 
+     * 
+     */
     const getOrderHist = async () => {
         try {
             const response = await fetch(url + "getOrders");
@@ -75,7 +83,11 @@ export default function Manager(){
     //console.log(menuItems);
 
 
-  {/* Submit new Item to Database - NEED TO REPLACE: body with real order ticket */}
+
+    /**
+     * function to add an item to the inventory
+     * 
+    */
   const addInventoryItem = async e => {
     //e.preventDefault(); /* dunno what this does, something about stopping refresh */
     try {
@@ -94,55 +106,26 @@ export default function Manager(){
     }
 };
 
- // capture user input in edit form inputs
-function handleFormChange(e) {
-    //console.log("here");
-    setItemForm({
-    ...itemForm,
-    [e.target.name]: e.target.value
-    })
-    //console.log(itemForm);
-   }   
-/*     const updateInventoryItem = async (e, menuItem) => {
-        e.preventDefault();
-        try {
-            //format: {"inventory_id": 35, "inventory_name": "apple chicken", "inventory_quantity": 99, "price_per_quantity": "10.75"};
-          const body = {"inventory_id": menuItem.inventory_id, "inventory_name": menuItem.inventory_name, "inventory_quantity": menuItem.inventory_quantity, "price_per_quantity": menuItem.price_per_quantity};
-          const response = await fetch(
-            url + "updateInventory",
-            {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(body)
-            }
-          );
-    
-          window.location = "/";
-        } catch (err) {
-          console.error(err.message);
-        }
-    }; */
+    /**
+     * capture user input in edit form inputs
+     * @param   e  
+     * 
+     */
+    function handleFormChange(e) {
+        //console.log("here");
+        setItemForm({
+        ...itemForm,
+        [e.target.name]: e.target.value
+        })
+        //console.log(itemForm);
+    }   
 
-    //console.log(menuItems);
-
-    // const mostRecentDate = async () => {
-    //     try {
-    //         const response = await fetch(url + "getRecentDate");
-    //         const jsonData = await response.json();
-    //         console.log(jsonData);
-    //         setOrders(jsonData);
-    //     } catch (err) {
-    //         console.error(err.message);
-    //     }
-    // };
-    
-    // useEffect(() => {
-    //     mostRecentDate();
-    // }, []);
-    
-    // console.log(menuItems);
-
-    //call back to update the table
+    /**
+     * updates an
+     * @param   {string} updatedItem  the name of the item to be updated
+     * 
+     * @return  {string} invenItem    the value that the item's been updated to
+     */
     function onUpdateItem(updatedItem) {
       console.log(updatedItem);
       const updatedItems = menuItems.map(
@@ -159,114 +142,119 @@ function handleFormChange(e) {
     return(
         <Fragment>
             {/* Displays logo and header */}
+            
+            
             <div className="center text-black">
                 <img src={logo} alt="logo" />
                 <h1> Manager View </h1>
             </div>
-
-            {/* Displays inventory status */}
-            <div className="col-md-3 col-sm-3 col-xs-3" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "3%"}}>
-                <h1 className="employeeElements text-center">Inventory Status</h1>
-                <div className="tableContainer">
-                    <InvenItems
-                        invenItems={menuItems.sort((a, b) => a.inventory_id - b.inventory_id)}
-                        onUpdateItem={onUpdateItem}
-                     />
+            <div className="row">
+                {/* Displays inventory status */}
+                <div className="col-md-3 col-sm-3 col-xs-3" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "3%"}}>
+                    <h1 className="employeeElements text-center">Inventory Status</h1>
+                    <div className="tableContainer">
+                        <InvenItems
+                            invenItems={menuItems.sort((a, b) => a.inventory_id - b.inventory_id)}
+                            onUpdateItem={onUpdateItem}
+                        />
+                    </div>
                 </div>
-            </div>
-            
-            {/* Displays employee roster */}
-            <div className="col-md-3 col-sm-3 col-xs-3" style = {{position: "absolute", marginTop: "15%", top: "0px", right: "0px", marginRight: "3%",}}>
-                <h1 className="employeeElements text-center">Employee Roster</h1>
-                <div className="tableContainer">
-                    <table className="table employeeElements" id="test1">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Wage</th>
-                                <th>Hours</th>
-                                <th>Manager</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {employees.map((employee) => {
-                                return(
-                                    <tr>
-                                        <td>{employee.employee_id}</td>
-                                        <td>{employee.first_name}</td>
-                                        <td>{employee.last_name}</td>
-                                        <td>{employee.wage}</td>
-                                        <td>{employee.hours}</td>
-                                        <td>{employee.is_manager}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                
+                {/* Displays employee roster */}
+                <div className="col-md-3 col-sm-3 col-xs-3" style = {{position: "absolute", marginTop: "15%", top: "0px", right: "0px", marginRight: "3%",}}>
+                    <h1 className="employeeElements text-center">Employee Roster</h1>
+                    <div className="tableContainer">
+                        <table className="table employeeElements" id="test1">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Wage</th>
+                                    <th>Hours</th>
+                                    <th>Manager</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {employees.map((employee) => {
+                                    return(
+                                        <tr>
+                                            <td>{employee.employee_id}</td>
+                                            <td>{employee.first_name}</td>
+                                            <td>{employee.last_name}</td>
+                                            <td>{employee.wage}</td>
+                                            <td>{employee.hours}</td>
+                                            <td>{employee.is_manager}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            {/* Displays order history */}
-            <div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "37.5%",}}>
-                <h1 className="employeeElements">Order History</h1>  
-                <div className="tableContainer">
-                    <table className="table employeeElements" id="test1">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Purchase Date</th>
-                                <th>Employee ID</th>
-                                <th>Inventory IDs</th>
-                                <th>Total Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {orders.map((order, newDate) => {
-                                //const recentDate = orders[newDate];
-                                return(
-                                    <tr>
-                                        <td>{order.order_id}</td>
-                                        <td>{order.purchase_date.substring(0,10)}</td>
-                                        <td>{order.employee_id}</td>
-                                        <td>{order.inventory_id_array}</td>
-                                        <td>{parseFloat(order.total_price).toFixed(2)}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                {/* Displays order history */}
+                <div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "37.5%",}}>
+                    <h1 className="employeeElements">Order History</h1>  
+                    <div className="tableContainer">
+                        <table className="table employeeElements" id="test1">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Purchase Date</th>
+                                    <th>Employee ID</th>
+                                    <th>Inventory IDs</th>
+                                    <th>Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {orders.map((order, newDate) => {
+                                    //const recentDate = orders[newDate];
+                                    return(
+                                        <tr>
+                                            <td>{order.order_id}</td>
+                                            <td>{order.purchase_date.substring(0,10)}</td>
+                                            <td>{order.employee_id}</td>
+                                            <td>{order.inventory_id_array}</td>
+                                            <td>{parseFloat(order.total_price).toFixed(2)}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             {/* Submit restock order */}
-            <div div className="col-md-3 col-sm-3 col-xs-3 text-center" style = {{position: "absolute", marginBottom: "-10%", bottom: "0px", left: "0px", marginLeft: "35%",}}>
-                <h1 className="employeeElements">Add New Item</h1>
-                <form onSubmit={addInventoryItem}>
-                    <div class="field">
-                        <label for="name">Name:</label>
-                        <input type="text" name="inventory_name" value={itemForm.inventory_name} placeholder="Beyond Orange Chicken" onChange={handleFormChange}/>
-                    </div>
+            <div className="row">
+                <div div className="col-md-3 col-sm-3 col-xs-3 text-center" style = {{position: "absolute", marginBottom: "-20%", bottom: "0px", left: "0px", marginLeft: "35%",}}>
+                    <h1 className="employeeElements">Add New Item</h1>
+                    <form onSubmit={addInventoryItem}>
+                        <div class="field">
+                            <label for="name">Name:</label>
+                            <input type="text" name="inventory_name" value={itemForm.inventory_name} placeholder="Beyond Orange Chicken" onChange={handleFormChange}/>
+                        </div>
 
-                    <div class="field">
-                        <label for="quantity">Quantity:</label>
-                        <input type="text" name="inventory_quantity" value={itemForm.inventory_quantity} placeholder="500" onChange={handleFormChange}/>
-                    </div>
+                        <div class="field">
+                            <label for="quantity">Quantity:</label>
+                            <input type="text" name="inventory_quantity" value={itemForm.inventory_quantity} placeholder="500" onChange={handleFormChange}/>
+                        </div>
 
-                    <div class="field">
-                        <label for="pricePerQuantity">Price per Quantity:</label>
-                        <input type="text" name="price_per_quantity" value={itemForm.price_per_quantity} placeholder="9.99" onChange={handleFormChange}/>
-                    </div>
+                        <div class="field">
+                            <label for="pricePerQuantity">Price per Quantity:</label>
+                            <input type="text" name="price_per_quantity" value={itemForm.price_per_quantity} placeholder="9.99" onChange={handleFormChange}/>
+                        </div>
 
-                    <div class="field">
-                        <label for="isItem">Is Menu Item:</label>
-                        <input type="text" name="is_menu_item" value={itemForm.is_menu_item} placeholder="True" onChange={handleFormChange}/>
-                    </div>
-                    
-                    <button className="btn btn-success btn-lg" type="submit">Submit Order</button>
-                </form>
-            </div> 
+                        <div class="field">
+                            <label for="isItem">Is Menu Item:</label>
+                            <input type="text" name="is_menu_item" value={itemForm.is_menu_item} placeholder="True" onChange={handleFormChange}/>
+                        </div>
+                        
+                        <button className="btn btn-success btn-lg" type="submit">Submit Order</button>
+                    </form>
+                </div> 
+            </div>
         </Fragment>
     );
 }

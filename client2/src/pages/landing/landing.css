@@ -22,9 +22,21 @@
     border: none;
 }
 
-.customer{
-    top:90%;
+.customer2{
+    position:absolute;
+    top:50%;
     left: 10%;
     background: white;
     border: none;
+}
+
+.customerLink{
+    position:absolute;
+    top:57%;
+    left: 10%;
+    border: none;
+}
+
+.profile{
+    
 }

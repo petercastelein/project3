@@ -11,6 +11,10 @@ Team 14
 const Pool = require("pg").Pool;
 const dotenv = require('dotenv').config();
 
+/**
+ * Configuration info for db connection
+ * 
+ */
 const pool = new Pool({
    user: process.env.PSQL_USER,
    host: process.env.PSQL_HOST,

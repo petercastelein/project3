@@ -155,7 +155,7 @@ app.get("/getEmployees", async(req, res) => {
 
 app.get("/getOrders", async(req, res) => {
    try {
-      const allTodos = await pool.query("SELECT * FROM customer_order");
+      const allTodos = await pool.query("SELECT * FROM customer_order WHERE purchase_date = (SELECT MAX(purchase_date) FROM customer_order)");
       //console.log(allTodos.rows);
       res.json(allTodos.rows);
    } catch (err) {

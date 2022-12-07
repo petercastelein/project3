@@ -13,7 +13,10 @@ export default function Cashier(){
     const [ticketTotal, setTotal] = useState(0.0);
     const [menuItems, setMenuItems] = useState([]);
 
-    {/* Displays menu items currently in order */}
+    /** Displays menu items currently in order
+     *
+     * 
+     */
     const getMenuItems = async () => {
         document.getElementById("google_translate").hidden = true;
         try {
@@ -30,9 +33,12 @@ export default function Cashier(){
         getMenuItems();
     }, []);
     
-    //console.log(menuItems);
 
-    //call back to update the table
+    /** Order ticket that 
+     * @param {int} itemID - the ID of the item being added to the ticket
+     * @param {string} itemName - the name of the item being added to the ticket
+     * @param {double} itemPrice - price of the item being added to the ticket
+     */
     function addToTicket(itemId, itemName, itemPrice) {
         setLabel("Current Order");
       let updatedTicket = ticket.map((x) => x);
@@ -61,7 +67,10 @@ export default function Cashier(){
       setTotal(total)
     }
 
-    {/* Adds selected menu item to order */}
+     /** Increments the ticket according to the given item and amount
+     * @param {object} ticketItem - the item being compared for the incrementation
+     * @param {int} amount - amount that the ticket is incremented by
+     */
     function incrementTicket(ticketItem, amount) { 
       //console.log(ticketItem)
       let updateTicket = [...ticket];
@@ -83,7 +92,9 @@ export default function Cashier(){
       setTotal(total);
   };
 
-      {/* Adds selected menu item to order */}
+      /** Removes an item from the ticket 
+     * @param {object} ticketItem - the item being compared for the incrementation
+     */
       function removeFromTicket(ticketItem) { 
          //console.log(ticketItem)
          let updateTicket = [...ticket];
@@ -99,7 +110,9 @@ export default function Cashier(){
      };
 
 
-        {/* Submits Order Ticket to backend - NEED TO REPLACE: body with real order ticket*/}
+        /** Submits Order Ticket to backend 
+         * 
+         */
         const submitOrder = async e => {
             //e.preventDefault(); /* dunno what this does, something about stopping refresh */
             const event = new Date();
