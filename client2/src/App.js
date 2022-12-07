@@ -23,9 +23,6 @@ import Cashier from "./pages/cashier/cashier.js";
 import Landing from "./pages/landing/landing.js";
 import NavBar from "./pages/navbar/navbar.js";
 
-import Dummy from "./pages/manager/dummy_man";
-import Dcash from "./pages/cashier/dcash";
-
 function App() {
   
   return (
@@ -39,9 +36,7 @@ function App() {
             <Route path="customer" element={<Customer />} />
             <Route path="manager" element={<Manager />} />              
             <Route path="cashier" element={<Cashier />} />
-            <Route path="/" element={<Landing />} /> 
-            <Route path="dummy" element={<Dummy />} />   
-            <Route path="dcash" element={<Dcash />} />         
+            <Route path="/" element={<Landing />} />     
         </Routes>
         
     </Router>

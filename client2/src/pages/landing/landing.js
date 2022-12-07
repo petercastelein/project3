@@ -2,7 +2,7 @@ import React from 'react';
 import {Fragment} from 'react';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode"; 
-
+import "./landing.css"
 // image imports
 import logo from '../../images/Panda-Express-Logo.jpeg';
 import background from '../../images/background.jpeg';
@@ -39,28 +39,36 @@ export default function Landing(){
 
     return(
         <Fragment>
-             <div style={{ backgroundImage: background }}>
-                <div class="container">
-                <div className="center">
-                    <img src={logo} alt="Panda Express Logo" />
-                    <h1> Panda Express </h1>
-                </div>
+                <div style={{ backgroundImage: background }}>
+                    <div class="container">
+                    <div className="center">
+                        <img src={logo} alt="Panda Express Logo" />
+                        <h1> Panda Express </h1>
+                    </div>
 
-
-                <div className="center ratio ratio-16x9">
-                    <iframe loading = "lazy" allowFullScreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJXXBI75iDRoYRsfgNW3cJV7c&key=AIzaSyA3VetYaIeHIvt4FAqJ0Km-_3wj6coi0-E"></iframe>
+                    <div className="container2">
+                        <iframe className="map" title="map" loading = "lazy" allowFullScreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJXXBI75iDRoYRsfgNW3cJV7c&key=AIzaSyA3VetYaIeHIvt4FAqJ0Km-_3wj6coi0-E"></iframe>
+                    </div>
+                <h1 className="employee">Sign in as Manager or Cashier:</h1>
+                <div id="signInDiv" className="signin">
+                
+                <h1 className="customer">Customers:</h1>
+                <div>
+                    <button className="btn btn-dark">Continue to Order</button>
                 </div>
-                <div id="signInDiv"> </div> 
+                    
+                </div> 
                 { Object.keys(user).length != 0 &&
                     <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
                 }
                 { user &&
                     <div>
-                        <img  src={user.picture} class="center"></img>
-                        <h3>{user.name}</h3>
+                        <img  src={user.picture} class="center" alt="profile"></img>
+                        <h1>{user.name}</h1>
                     </div>
                 }
-                </div>
+                
+            </div>
             </div>
         </Fragment>
     );

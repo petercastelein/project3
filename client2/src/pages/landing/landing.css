@@ -1,0 +1,30 @@
+.container2{
+    position:absolute;
+    top:30%;
+    right: 5%;
+}
+
+.map{
+    width: 600px;
+    height:500px;
+}
+
+.signin{
+    position:absolute;
+    top:35%;
+    left: 10%;
+}
+
+.employee{
+    top:30%;
+    left: 10%;
+    background: white;
+    border: none;
+}
+
+.customer{
+    top:90%;
+    left: 10%;
+    background: white;
+    border: none;
+}
