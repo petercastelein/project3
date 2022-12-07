@@ -209,7 +209,7 @@ function handleFormChange(e) {
             </div>
 
             {/* Displays order history */}
-            <div div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "37.5%",}}>
+            <div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "37.5%",}}>
                 <h1 className="employeeElements">Order History</h1>  
                 <div className="tableContainer">
                     <table className="table employeeElements" id="test1">

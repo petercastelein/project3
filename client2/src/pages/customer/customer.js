@@ -6,6 +6,29 @@ import {url} from "../../components/constvars.js";
 // IMPORT IMAGES
 import logo from '../../images/Panda-Express-Logo.jpeg';
 
+/* import Beijing_Beef from '../../menu_item_img/Bejing_Beef.png';
+import Beyond_Orange_Chicken from '../../menu_item_img/Beyond_Orange_Chicken.png';
+import Black_Pepper_Angus from '../../menu_item_img/Black_Pepper_Angus.png';
+import Black_Pepper_Chicken from '../../menu_item_img/Black_Pepper_Chicken.png';
+import Broccoli_Beef from '../../menu_item_img/Broccoli_Beef.png';
+import Brown_Rice from '../../menu_item_img/Brown_Rice.png';
+import Chicken_Egg_Roll from '../../menu_item_img/Chicken_Egg_Roll.png';
+import Chow_Mein from '../../menu_item_img/Chow_Mein.png';
+import Cream_Cheese_Rangoon from '../../menu_item_img/Cream_Cheese_Rangoon.png';
+import Fortune_Cookie from '../../menu_item_img/Fortune_Cookie.png';
+import Fountain_Drink from '../../menu_item_img/Fountain_Drink.png';
+import Fried_Rice from '../../menu_item_img/Fried_Rice.png';
+import Honey_Sesame_Chicken from '../../menu_item_img/Honey_Sesame_Chicken.png';
+import Honey_Walnut_Shrimp from '../../menu_item_img/Honey_Walnut_Shrimp.png';
+import Kung_Pao_Chicken from '../../menu_item_img/Kung_Pao_Chicken.png';
+import Mushroom_Chicken from '../../menu_item_img/Mushroom_Chicken.png';
+import Original_Orange_Chicken from '../../menu_item_img/Original_Orange_Chicken.png';
+import String_Bean_Chicken_Breast from '../../menu_item_img/String_Bean_Chicken_Breast.png';
+import Super_Green from '../../menu_item_img/Super_Green.png';
+import Sweet_Chicken_Breast from '../../menu_item_img/Sweet_Chicken_Breast.png';
+import Veggie_Egg_Roll from '../../menu_item_img/Veggie_Egg_Roll.png';
+import White_Rice from '../../menu_item_img/White_Rice.png'; */
+
 export default function Customer(){
     const [label, setLabel] = useState("Your Order"); 
     const [ticket, setTicket] = useState([]);
@@ -30,6 +53,11 @@ export default function Customer(){
         getMenuItems();
     }, []);
 
+/*     const varToString = varObj => Object.keys(varObj)[0]
+
+    const displayName = varToString({ Beijing_Beef })
+    console.log(displayName) */
+    
     //console.log(menuItems);
 
     //call back to update the table
@@ -137,6 +165,7 @@ export default function Customer(){
                 <h1> Panda Express </h1>
             </div>
             
+
             {/* Menu Items */}
            
             <div className="menu text-center">
@@ -147,7 +176,7 @@ export default function Customer(){
                 ).sort((a, b) => a.inventory_id - b.inventory_id)
                 .map((item) => (
                     <div className="menuItems">
-                        <div className="menuItems w-100 h-75 row mx-auto"><img src={require('../../menu_item_img/' + (item.inventory_name).replace(/ /g, '_') + '.png')} alt="img" /></div>
+                        <div className="menuItems w-100 h-75 row mx-auto"><img src={require('../../menu_item_img/'+`${item.inventory_name.replace(/ /g, '_')}`+'.png')} alt="img"/> </div>
                         <div className="text-center h3">{item.inventory_name}</div>
                         <div className="text-center h4">{item.price_per_quantity.substring(0,10)}</div>
                         <div><button className="btn btn-dark btn-lg" type="submit" onClick={(e) => {

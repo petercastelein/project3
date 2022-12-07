@@ -5,7 +5,7 @@ import "./navbar.css"
 const Navbar = () => {
     return (
 
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark position-relative">
         <a className="navbar-brand text-large" href="customer">
           Customer
         </a>

@@ -139,7 +139,7 @@ export default function Cashier(){
             </div>
             
             {/* Menu */}
-            <div div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "15%", top: "0px", left: "0px", marginLeft: "15%",}}>
+            <div div className="col-md-3 col-sm-3 col-xs-3 text-center table-fixed" style = {{position: "absolute", marginTop: "20%", top: "0px", left: "0px", marginLeft: "5%",}}>
                 <h1 className="employeeElements">Menu</h1>  
                 <div className="tableContainer">
                     <table className="table employeeElements" id="test1">
@@ -173,8 +173,9 @@ export default function Cashier(){
             </div>
 
             {/* Customer Order */}
-            <div className="order text-center">
-                    <h1>{label}</h1>
+            <div className="col-md-3 col-sm-3 col-xs-3 text-center border border-dark w-100 overflow-hidden" style = {{position: "absolute", marginTop: "20%", top: "0px", right: "0px", marginRight: "20%",}}>
+                    <h1 className="text-center">Current Order</h1>
+
                     <table className="table mt-5 text-center">
                         <thead>
                             <tr>
@@ -218,7 +219,7 @@ export default function Cashier(){
                         <tfoot>
                             <tr>
                                 <td><h3 className="text-left">Order Total:</h3></td>
-                                <td><h3 className="text-left">{(ticketTotal).toFixed(2)}</h3></td>
+                                <td><h3 className="text-left">{"$" + (ticketTotal).toFixed(2)}</h3></td>
                             </tr>
                             
                             {/* Sum of the price array (displays total price) */}
