@@ -10,7 +10,7 @@ Team 14
 
 const express = require("express");
 const app = express();
-const port = 5800;
+const port = process.env.PORT || 3030;
 const cors = require("cors");
 const pool = require("./db.js");
 
