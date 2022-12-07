@@ -80,7 +80,7 @@ export default function Landing(){
                     
                     <h1 className="customer2">Customers:</h1>
                     <div className="customerLink">
-                        <button className="btn btn-primary btn-lg" onClick={navigateToCustomer}>Continue to Order</button>
+                        <button className="btn btn-dark btn-lg" onClick={navigateToCustomer}>Continue to Order</button>
                     </div>
                         
                     
